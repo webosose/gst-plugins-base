@@ -806,9 +806,16 @@ AM_CONDITIONAL(HAVE_PNG, test "x$HAVE_PNG" = "xyes")
 AM_CONDITIONAL(HAVE_JPEG, test "x$HAVE_JPEG" = "xyes")
 
 dnl *** gio-unix-2.0 for tests/check/pipelines/tcp.c ***
+AC_ARG_ENABLE([gio_unix_2_0],
+  [AS_HELP_STRING([--disable-gio_unix_2_0],[disable use of gio_unix_2_0])],
+  [],
+  [enable_gio_unix_2_0=yes])
+
+if test "x${enable_gio_unix_2_0}" != "xno"; then
 PKG_CHECK_MODULES(GIO_UNIX_2_0, gio-unix-2.0 >= 2.24,
     HAVE_GIO_UNIX_2_0="yes",
     HAVE_GIO_UNIX_2_0="no")
+fi
 AM_CONDITIONAL(USE_GIO_UNIX_2_0, test "x$HAVE_GIO_UNIX_2_0" = "xyes")
 
 dnl *** finalize CFLAGS, LDFLAGS, LIBS
