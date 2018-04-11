@@ -231,7 +231,7 @@ case $host in
                             HAVE_EGL=yes
                             HAVE_GLES2=yes
                             HAVE_EGL_RPI=yes
-                            EGL_LIBS="-lbcm_host -lvcos -lvchiq_arm"
+                            EGL_LIBS="-lbcm_host -lvchostif -lvcos -lvchiq_arm"
                             EGL_CFLAGS=""
                             AC_DEFINE(USE_EGL_RPI, [1], [Use RPi platform])
                           ])
